@@ -3,7 +3,7 @@ import time
 
 
 database_params = {'server': 'localhost', 'user_name': 'root', 'port': '3306', 'database': 'my_schema', 'table': 'products'}
-file_path = '/Users/Jewel/Interview/Postman/Assignments/products_test.csv'
+file_path = 'Data/products.csv'
 chunksize = 62_500  # Optimal chunk size = Total data rows/cpu cores available
 
 if __name__ == "__main__":
