@@ -1,25 +1,26 @@
 import multiprocessing as mp
+from Utils.database_utils import DatabaseUtils
 
 
-class ParallelizeUtils:
+class ProcessUtils(DatabaseUtils):
 
-    @staticmethod
-    def parallelize_insert(insert_function, data_chunks, database_params, timeout):
-
-        db_uri = f"mysql://{database_params['user_name']}@{database_params['server']}:{database_params['port']}/{database_params['database']}?charset=utf8"
-        pool = mp.Pool(mp.cpu_count())
-
+    def parallelize_insert(self, insert_function, data_chunks, timeout):
+        """
+        Parallelize the insert function using Multiprocessing module in python.
+        :param insert_function: (Function Object) Insert function
+        :param data_chunks: (Object) Chunks of pandas dataframe data
+        :param timeout: (Integer) Time to wait for multiprocessing to complete
+        :return: (None)
+        """
         funclist = []
+        pool = mp.Pool(mp.cpu_count())
 
         for df in data_chunks:
             try:
-                f = pool.apply_async(insert_function, [df, database_params['database'], database_params['table'], db_uri])
+                f = pool.apply_async(insert_function, [df, self.database_params['database'], self.database_params['table'], self.db_uri])
                 funclist.append(f)
             except Exception as e:
                 raise Exception(e)
 
         for f in funclist:
             f.get(timeout=timeout)
-
-
-
