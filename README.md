@@ -38,7 +38,9 @@ A Python code for parallel insert of csv data to transactional database table.
   3. Updation of existing products in the table based on `sku` as the primary key - The code allows for updation of the name, sku and description 
      based on one or all of the three columns.
      Total no of tables in the database - 2 (products, aggregate)
+     
      No of rows in products table - 500,000
+     
      No of rows in aggregate table - 222,024
      
      Products table sample
