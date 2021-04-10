@@ -28,6 +28,10 @@ A Python code for parallel insert of csv data to transactional database table.
   `sku` VARCHAR(100) NULL,
   `description` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`));
+  
+  - Table: Aggregate
+  Aggregated query for rows with `name` and `no. of products` as the columns and load them to aggregate table - 
+  CREATE TABLE my_schema.aggregate SELECT name, COUNT(*) AS 'no of products' FROM my_schema.products GROUP BY name ORDER BY name; 
 
 ## 3. Completed points in "Points to achieve"
   1. OOPS - The code follows OOPS and uses the concepts of classes, objects, dynamic attributes and Inheritance
@@ -52,8 +56,7 @@ A Python code for parallel insert of csv data to transactional database table.
        
   4. All product details are ingested into a single table
   
-  5. Aggregated query for rows with `name` and `no. of products` as the columns and load them to aggregate table - 
-     CREATE TABLE my_schema.aggregate SELECT name, COUNT(*) AS 'no of products' FROM my_schema.products GROUP BY name ORDER BY name; 
+  5. Created aggregated query for rows with `name` and `no. of products` as the columns and loaded them to aggregate table
   
 ## 4. Points not done from "Points to achieve"
       None
