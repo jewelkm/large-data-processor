@@ -1,4 +1,4 @@
-# large-data-processor
+# Large-data-processor
 A Python code for parallel insert of csv data to transactional database table.
 
 ## 1. Steps to run code
