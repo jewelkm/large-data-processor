@@ -30,8 +30,7 @@ A Python code for parallel insert of csv data to transactional database table.
   PRIMARY KEY (`id`));
   
   - Table: Aggregate
-  - Aggregated query for rows with `name` and `no. of products` as the columns and load them to aggregate table
-   
+  - Aggregated query for rows with `name` and `no. of products` as the columns and load them to aggregate table - 
   CREATE TABLE my_schema.aggregate SELECT name, COUNT(*) AS 'no of products' FROM my_schema.products GROUP BY name ORDER BY name; 
 
 ## 3. Completed points in "Points to achieve"
