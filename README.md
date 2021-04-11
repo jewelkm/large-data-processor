@@ -74,6 +74,7 @@ A Python code for parallel insert of csv data to transactional database table.
   
   - Support the code for NoSQL databases as well.
   
+  P.S. I would like to create a docker container for the application but could not do so since my PC has an ARM architecture processor and does not support docker yet.
   
   
   
